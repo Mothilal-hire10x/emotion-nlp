@@ -276,7 +276,7 @@ This project is for educational purposes.
 
 ## 👨‍💻 Author
 
-Emotion Detection Project - Final Year Project
+Emotion Detection Project - Mothilal
 
 ---
 
