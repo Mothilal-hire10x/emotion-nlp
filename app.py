@@ -73,14 +73,23 @@ def predict_emotion(text):
     }
 
 
-# Emotion emoji mapping
+# Emotion emoji mapping (extended for tweet_emotions dataset)
 EMOTION_EMOJIS = {
     'joy': '😊',
     'sadness': '😢',
     'anger': '😠',
     'fear': '😨',
     'surprise': '😲',
-    'neutral': '😐'
+    'neutral': '😐',
+    'love': '❤️',
+    'happiness': '😄',
+    'hate': '😡',
+    'worry': '😟',
+    'enthusiasm': '🤩',
+    'fun': '🎉',
+    'relief': '😌',
+    'empty': '😶',
+    'boredom': '😑'
 }
 
 

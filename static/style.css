@@ -228,7 +228,7 @@ textarea::placeholder {
 }
 
 /* Emotion Colors for Bars */
-.prob-bar.joy {
+.prob-bar.joy, .prob-bar.happiness {
     background: linear-gradient(90deg, #ffd700, #ffb700);
 }
 
@@ -236,11 +236,11 @@ textarea::placeholder {
     background: linear-gradient(90deg, #4a90d9, #2c5aa0);
 }
 
-.prob-bar.anger {
+.prob-bar.anger, .prob-bar.hate {
     background: linear-gradient(90deg, #ff4444, #cc0000);
 }
 
-.prob-bar.fear {
+.prob-bar.fear, .prob-bar.worry {
     background: linear-gradient(90deg, #9b59b6, #6c3483);
 }
 
@@ -248,8 +248,20 @@ textarea::placeholder {
     background: linear-gradient(90deg, #ff9f43, #ee5a24);
 }
 
-.prob-bar.neutral {
+.prob-bar.neutral, .prob-bar.empty, .prob-bar.boredom {
     background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+}
+
+.prob-bar.love {
+    background: linear-gradient(90deg, #ff6b81, #ee5a6b);
+}
+
+.prob-bar.enthusiasm, .prob-bar.fun {
+    background: linear-gradient(90deg, #26de81, #20bf6b);
+}
+
+.prob-bar.relief {
+    background: linear-gradient(90deg, #45aaf2, #2d98da);
 }
 
 .prob-value {
@@ -351,7 +363,7 @@ textarea::placeholder {
     font-size: 0.95rem;
 }
 
-.emotion-tag.joy {
+.emotion-tag.joy, .emotion-tag.happiness {
     background: #fff3cd;
     color: #856404;
 }
@@ -361,12 +373,12 @@ textarea::placeholder {
     color: #004085;
 }
 
-.emotion-tag.anger {
+.emotion-tag.anger, .emotion-tag.hate {
     background: #f8d7da;
     color: #721c24;
 }
 
-.emotion-tag.fear {
+.emotion-tag.fear, .emotion-tag.worry {
     background: #e2d5f1;
     color: #4a235a;
 }
@@ -376,9 +388,24 @@ textarea::placeholder {
     color: #974a00;
 }
 
-.emotion-tag.neutral {
+.emotion-tag.neutral, .emotion-tag.empty, .emotion-tag.boredom {
     background: #e2e3e5;
     color: #383d41;
+}
+
+.emotion-tag.love {
+    background: #ffe0e6;
+    color: #a0004d;
+}
+
+.emotion-tag.enthusiasm, .emotion-tag.fun {
+    background: #d4edda;
+    color: #155724;
+}
+
+.emotion-tag.relief {
+    background: #d1ecf1;
+    color: #0c5460;
 }
 
 /* Footer */

@@ -23,6 +23,19 @@ def load_dataset(filepath):
     """Load the emotion dataset from CSV file."""
     print(f"Loading dataset from: {filepath}")
     df = pd.read_csv(filepath)
+    
+    # Handle different column name formats
+    # tweet_emotions.csv uses: tweet_id, sentiment, content
+    # emotions.csv uses: text, emotion
+    if 'content' in df.columns and 'sentiment' in df.columns:
+        df = df.rename(columns={'content': 'text', 'sentiment': 'emotion'})
+        # Drop tweet_id if exists
+        if 'tweet_id' in df.columns:
+            df = df.drop(columns=['tweet_id'])
+    
+    # Remove rows with missing values
+    df = df.dropna(subset=['text', 'emotion'])
+    
     print(f"Dataset loaded successfully! Shape: {df.shape}")
     print(f"Emotion distribution:\n{df['emotion'].value_counts()}")
     return df
@@ -111,8 +124,8 @@ def main():
     print("EMOTION DETECTION MODEL TRAINING")
     print("=" * 50)
     
-    # File paths
-    dataset_path = 'dataset/emotions.csv'
+    # File paths - use the larger tweet_emotions dataset
+    dataset_path = 'dataset/tweet_emotions.csv'
     model_dir = 'model'
     
     # Load dataset
