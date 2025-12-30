@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1>🎭 Emotion Detection System</h1>
+            <p class="subtitle">Analyze the emotion in your text using Machine Learning & NLP</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <form method="POST" action="/predict" class="emotion-form">
+                    <div class="form-group">
+                        <label for="text-input">Enter your text:</label>
+                        <textarea 
+                            id="text-input" 
+                            name="text" 
+                            rows="4" 
+                            placeholder="Type or paste your text here... (e.g., 'I am feeling very happy today!')"
+                            required
+                        >{% if result %}{{ result.original_text }}{% endif %}</textarea>
+                    </div>
+                    <button type="submit" class="analyze-btn">
+                        <span class="btn-icon">🔍</span>
+                        Analyze Emotion
+                    </button>
+                </form>
+            </section>
+
+            <!-- Result Section -->
+            {% if result %}
+            <section class="result-section {% if result.error %}error{% endif %}">
+                {% if result.error %}
+                    <div class="error-message">
+                        <span class="error-icon">⚠️</span>
+                        <p>{{ result.error }}</p>
+                    </div>
+                {% else %}
+                    <div class="result-card">
+                        <div class="emotion-display">
+                            <span class="emotion-emoji">{{ result.emoji }}</span>
+                            <h2 class="emotion-label">{{ result.emotion | title }}</h2>
+                            <p class="confidence">Confidence: {{ result.confidence }}%</p>
+                        </div>
+                        
+                        <div class="probability-section">
+                            <h3>All Emotions Probability:</h3>
+                            <div class="probability-bars">
+                                {% for emotion, prob in result.all_probabilities.items() %}
+                                <div class="prob-item">
+                                    <div class="prob-label">
+                                        <span class="prob-emoji">
+                                            {% if emotion == 'joy' %}😊
+                                            {% elif emotion == 'sadness' %}😢
+                                            {% elif emotion == 'anger' %}😠
+                                            {% elif emotion == 'fear' %}😨
+                                            {% elif emotion == 'surprise' %}😲
+                                            {% else %}😐
+                                            {% endif %}
+                                        </span>
+                                        <span>{{ emotion | title }}</span>
+                                    </div>
+                                    <div class="prob-bar-container">
+                                        <div class="prob-bar {{ emotion }}" style="width: {{ prob }}%"></div>
+                                    </div>
+                                    <span class="prob-value">{{ prob }}%</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </section>
+            {% endif %}
+
+            <!-- Info Section -->
+            <section class="info-section">
+                <h3>📚 How It Works</h3>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <span class="info-icon">📝</span>
+                        <h4>1. Text Input</h4>
+                        <p>Enter any text you want to analyze for emotional content.</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">⚙️</span>
+                        <h4>2. NLP Processing</h4>
+                        <p>Text is preprocessed using tokenization, lemmatization, and stopword removal.</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">🤖</span>
+                        <h4>3. ML Classification</h4>
+                        <p>TF-IDF vectorization and Naive Bayes classifier predict the emotion.</p>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-icon">🎯</span>
+                        <h4>4. Result</h4>
+                        <p>Get the detected emotion with confidence scores.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Supported Emotions -->
+            <section class="emotions-section">
+                <h3>🎭 Supported Emotions</h3>
+                <div class="emotion-tags">
+                    <span class="emotion-tag joy">😊 Joy</span>
+                    <span class="emotion-tag sadness">😢 Sadness</span>
+                    <span class="emotion-tag anger">😠 Anger</span>
+                    <span class="emotion-tag fear">😨 Fear</span>
+                    <span class="emotion-tag surprise">😲 Surprise</span>
+                    <span class="emotion-tag neutral">😐 Neutral</span>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Emotion Detection System | Built with Flask, scikit-learn & NLTK</p>
+            <p class="tech-stack">Python • Machine Learning • Natural Language Processing</p>
+        </footer>
+    </div>
+</body>
+</html>

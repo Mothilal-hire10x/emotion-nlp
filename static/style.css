@@ -1,0 +1,446 @@
+/* ==========================================
+   EMOTION DETECTION SYSTEM - CSS STYLES
+   ========================================== */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+/* Main Content */
+.main-content {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Section */
+.input-section {
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+textarea::placeholder {
+    color: #aaa;
+}
+
+/* Analyze Button */
+.analyze-btn {
+    width: 100%;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.analyze-btn:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+}
+
+/* Result Section */
+.result-section {
+    margin-top: 30px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+/* Emotion Display */
+.emotion-display {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 25px;
+}
+
+.emotion-emoji {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 10px;
+    animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.emotion-label {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.confidence {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Probability Section */
+.probability-section h3 {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.probability-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.prob-item {
+    display: grid;
+    grid-template-columns: 120px 1fr 60px;
+    align-items: center;
+    gap: 15px;
+}
+
+.prob-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    color: #444;
+}
+
+.prob-emoji {
+    font-size: 1.3rem;
+}
+
+.prob-bar-container {
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.prob-bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.8s ease;
+}
+
+/* Emotion Colors for Bars */
+.prob-bar.joy {
+    background: linear-gradient(90deg, #ffd700, #ffb700);
+}
+
+.prob-bar.sadness {
+    background: linear-gradient(90deg, #4a90d9, #2c5aa0);
+}
+
+.prob-bar.anger {
+    background: linear-gradient(90deg, #ff4444, #cc0000);
+}
+
+.prob-bar.fear {
+    background: linear-gradient(90deg, #9b59b6, #6c3483);
+}
+
+.prob-bar.surprise {
+    background: linear-gradient(90deg, #ff9f43, #ee5a24);
+}
+
+.prob-bar.neutral {
+    background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+}
+
+.prob-value {
+    font-weight: 600;
+    color: #333;
+    text-align: right;
+}
+
+/* Error Message */
+.error-message {
+    background: #fee;
+    border: 1px solid #fcc;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #c00;
+}
+
+.error-icon {
+    font-size: 2rem;
+}
+
+/* Info Section */
+.info-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #eee;
+}
+
+.info-section h3 {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.info-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-card h4 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Emotions Section */
+.emotions-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.emotions-section h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.emotion-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.emotion-tag {
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.emotion-tag.joy {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.emotion-tag.sadness {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.emotion-tag.anger {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.emotion-tag.fear {
+    background: #e2d5f1;
+    color: #4a235a;
+}
+
+.emotion-tag.surprise {
+    background: #ffe5d0;
+    color: #974a00;
+}
+
+.emotion-tag.neutral {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: white;
+}
+
+.footer p {
+    margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.tech-stack {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .main-content {
+        padding: 25px;
+    }
+    
+    .prob-item {
+        grid-template-columns: 100px 1fr 50px;
+        gap: 10px;
+    }
+    
+    .emotion-emoji {
+        font-size: 4rem;
+    }
+    
+    .emotion-label {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .prob-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    
+    .prob-label {
+        justify-content: center;
+    }
+    
+    .prob-value {
+        text-align: center;
+    }
+}

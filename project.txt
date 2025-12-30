@@ -1,0 +1,291 @@
+🟢 FIRST STEP (Very Important)
+✅ Step 1: Create Project Folder (Do this now)
+On your Laptop/Desktop:
+1.	Create a new folder
+2.	Name it exactly as:
+Emotion_Detection_Project
+📌 This is your main project folder
+________________________________________
+✅ Step 2: Open Command Prompt / Terminal inside this folder
+On Windows:
+•	Open the folder
+•	Hold Shift + Right Click
+•	Click “Open Command Window here” or “Open in Terminal”
+You should now see something like:
+C:\Users\YourName\Emotion_Detection_Project>
+________________________________________
+✅ Step 3: Install Required Software (Check)
+Make sure you have:
+✔ Python installed
+✔ Internet connection
+Check Python version:
+Type this and press Enter:
+1.python --version
+2.python -m pip install pandas numpy scikit-learn nltk flask
+You already have this main folder:
+Emotion_Detection_Project
+Now we will organize the project properly.
+________________________________________
+🧩 STEP 5.1: Open the Project Folder
+1.	Go to Desktop
+2.	Open the folder Emotion_Detection_Project
+You should see it empty or with few files.
+________________________________________
+🧩 STEP 5.2: Create Folders (4 folders)
+Create dataset folder
+1.	Right-click inside the project folder
+2.	Click New → Folder
+3.	Rename it to:
+dataset
+📌 Purpose:
+This folder will store the emotion dataset (CSV file) used to train the ML model.
+________________________________________
+Create model folder
+1.	Right-click → New → Folder
+2.	Rename it to:
+model
+📌 Purpose:
+This folder will store:
+•	Trained ML model file
+•	TF-IDF vectorizer file
+(These files are created after training.)
+________________________________________
+Create templates folder
+1.	Right-click → New → Folder
+2.	Rename it to:
+templates
+📌 Purpose:
+This is used by Flask to store HTML files (frontend page).
+________________________________________
+Create static folder
+1.	Right-click → New → Folder
+2.	Rename it to:
+static
+📌 Purpose:
+This folder stores CSS files (design & styling).
+STEP 5.3: Create Python Files (3 files)
+Create app.py
+1.	Right-click → New → Text Document
+2.	Rename it to:
+app.py
+⚠ If you see app.py.txt:
+•	Click View tab in File Explorer
+•	Enable File name extensions
+•	Rename correctly to app.py
+📌 Purpose:
+This is the main Flask application.
+________________________________________
+Create train_model.py
+1.	Right-click → New → Text Document
+2.	Rename it to:
+train_model.py
+📌 Purpose:
+This file:
+•	Reads dataset
+•	Trains ML model
+•	Saves trained model
+________________________________________
+Create preprocess.py
+1.	Right-click → New → Text Document
+2.	Rename it to:
+preprocess.py
+📌 Purpose:
+This file contains NLP preprocessing steps:
+•	Lowercasing
+•	Stopword removal
+•	Lemmatization
+•	Tokenization
+(Exactly matching your PPT)
+________________________________________
+🧩 STEP 5.4: Final Structure (Must Look Like This)
+Emotion_Detection_Project/
+│
+├── dataset/
+├── model/
+├── templates/
+├── static/
+│
+├── app.py
+├── train_model.py
+├── preprocess.py
+📸 This structure is very important for:
+•	Guide review
+•	External viva
+•	Clean project submission
+
+
+
+STEP 6.2: Download the Dataset
+OPTION 1 (Recommended – Kaggle)
+1.	Go to kaggle.com
+2.	Search for:
+“Emotion Dataset for NLP”
+3.	Download the CSV file
+👉 If Kaggle asks login → create free account.
+________________________________________
+OPTION 2 (If you want quick start)
+Tell me:
+“Give sample dataset”
+I’ll give you a ready-made CSV you can copy-paste and save.
+________________________________________
+🔹 STEP 6.3: Rename & Place Dataset
+1.	Rename the downloaded file to:
+emotions.csv
+2.	Move it into:
+Emotion_Detection_Project/dataset/
+📌 Final path should be:
+dataset/emotions.csv
+________________________________________
+🔹 STEP 6.4: Dataset Format (Must Match This)
+Open emotions.csv using Excel / Notepad and confirm:
+text	emotion
+I am very happy today	joy
+I feel sad and lonely	sadness
+This makes me angry	anger
+I am scared of exams	fear
+⚠ If column names are different (e.g., sentence, label) → tell me.
+I’ll adjust code accordingly.
+________________________________________
+🗣️ Viva Explanation (Remember This)
+“We used a labeled emotion dataset where each text sentence is associated with a predefined emotion class. This dataset is used to train the machine learning model for emotion classification.”
+________________________________________
+⛔ STOP HERE
+Do only:
+•	Download dataset
+•	Place it in dataset folder
+•	Check column names
+STEP 6 (EASY METHOD): Create Dataset Manually
+We will create our own emotions.csv file
+✔ 100% valid
+✔ Accepted for final-year projects
+✔ Easy to explain in viva
+________________________________________
+🔹 STEP 6.1: Create the CSV file
+1.	Go to this folder:
+Emotion_Detection_Project/dataset
+2.	Right-click → New → Text Document
+3.	Rename it to:
+emotions.csv
+⚠ Make sure it is NOT emotions.csv.txt
+________________________________________
+🔹 STEP 6.2: Open emotions.csv
+•	Right-click → Open with → Notepad
+(or Excel is also OK)
+________________________________________
+🔹 STEP 6.3: COPY–PASTE THIS DATA (Important)
+Copy everything below and paste into emotions.csv, then Save.
+text,emotion
+I am very happy today,joy
+This is the best day of my life,joy
+I feel excited and cheerful,joy
+I am feeling very sad,sadness
+I feel lonely and depressed,sadness
+This situation makes me unhappy,sadness
+I am extremely angry right now,anger
+This behavior annoys me,anger
+I hate this so much,anger
+I am scared of the dark,fear
+I feel nervous about the exam,fear
+This incident frightened me,fear
+Wow I did not expect that,surprise
+This is a surprising result,surprise
+I am shocked by the news,surprise
+I am just sitting here,neutral
+Today is a normal day,neutral
+I am going to college,neutral
+📌 This is a labeled emotion dataset.
+________________________________________
+🔹 STEP 6.4: Final Check (Very Important)
+Confirm:
+•	File name: emotions.csv
+•	Location: dataset folder
+•	First row is:
+text,emotion
+________________________________________
+🗣️ How to Explain This in Viva
+“We created a labeled emotion dataset in CSV format where each sentence is mapped to an emotion category such as joy, sadness, anger, fear, surprise, and neutral. This dataset is used to train and test the emotion classification model.”
+________________________________________
+STEP 7: NLP PREPROCESSING MODULE
+(File: preprocess.py)
+This step directly matches your PPT, so it’s very important for:
+•	Guide review
+•	External viva
+•	Marks
+________________________________________
+🔹 STEP 7.1: Open preprocess.py
+1.	Go to:
+Emotion_Detection_Project
+2.	Open preprocess.py
+3.	Keep it empty for now
+________________________________________
+🔹 STEP 7.2: Copy–Paste This Code (Complete & Correct)
+✅ preprocess.py
+import nltk
+import re
+import string
+
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
+# Download required NLTK resources (run once)
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+
+lemmatizer = WordNetLemmatizer()
+stop_words = set(stopwords.words('english'))
+
+def preprocess_text(text):
+    # 1. Convert to lowercase
+    text = text.lower()
+
+    # 2. Remove URLs
+    text = re.sub(r'http\S+|www\S+|https\S+', '', text)
+
+    # 3. Remove punctuation
+    text = text.translate(str.maketrans('', '', string.punctuation))
+
+    # 4. Remove numbers
+    text = re.sub(r'\d+', '', text)
+
+    # 5. Tokenization
+    tokens = word_tokenize(text)
+
+    # 6. Stopword removal
+    tokens = [word for word in tokens if word not in stop_words]
+
+    # 7. Lemmatization
+    tokens = [lemmatizer.lemmatize(word) for word in tokens]
+
+    return " ".join(tokens)
+📌 Save the file after pasting.
+________________________________________
+🔹 STEP 7.3: What This Code Does (Viva Explanation)
+You can memorize this explanation 👇
+1️⃣ Lowercasing
+Converts all text to lowercase to reduce vocabulary size.
+2️⃣ Noise Removal
+Removes:
+•	URLs
+•	Punctuation
+•	Numbers
+3️⃣ Tokenization
+Splits sentences into individual words.
+4️⃣ Stopword Removal
+Removes common words like is, the, and.
+5️⃣ Lemmatization
+Converts words to base form
+(example: running → run)
+________________________________________
+🔹 STEP 7.4: Test Preprocessing (Optional but Recommended)
+In terminal, type:
+python
+Then:
+from preprocess import preprocess_text
+print(preprocess_text("I am VERY happy today!!!"))
+Expected output:
+happy today
+________________________________________
+________________________________________
+
